@@ -3247,55 +3247,7 @@ function dragify(Frame, object)
 	end
 	)
 end
--- Tạo một ScreenGui mới riêng biệt cho Text này
-local TopTextGui = Instance.new("ScreenGui")
-TopTextGui.Name = "PermanentTopTextGui" -- Đặt tên để dễ nhận biết
-TopTextGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
-TopTextGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling -- Hoặc Global nếu cần ưu tiên cao hơn
-TopTextGui.ResetOnSpawn = false -- Đảm bảo không bị reset khi chết
 
--- Tạo TextLabel
-local TopTextLabel = Instance.new("TextLabel")
-TopTextLabel.Name = "MyPermanentLabel"
-TopTextLabel.Parent = TopTextGui
-
--- ----- Tùy chỉnh TextLabel -----
-
--- 1. Vị trí: Giữa trên cùng màn hình
-TopTextLabel.AnchorPoint = Vector2.new(0.5, 0) -- Đặt điểm neo ở giữa-trên của Label
-TopTextLabel.Position = UDim2.new(0.5, 0, 0, 5) -- 0.5 = giữa ngang, 0 = sát mép trên, 5 pixels để cách lề trên một chút
-
--- 2. Kích thước: "Vừa phải" - Bạn có thể điều chỉnh các giá trị này
-TopTextLabel.Size = UDim2.new(0, 400, 0, 30) -- Ví dụ: Rộng 400px, Cao 30px
-
--- 3. Nội dung Text: Thay đổi text bạn muốn hiển thị ở đây
-TopTextLabel.Text = "Made By Hòa Poy Tv - Chúc bạn chơi game vui vẻ!" -- << THAY TEXT Ở ĐÂY
-
--- 4. Định dạng Font chữ:
-TopTextLabel.Font = Enum.Font.SourceSansBold -- Chọn Font (ví dụ: SourceSansBold, GothamBold,...)
-TopTextLabel.TextSize = 18 -- Chỉnh cỡ chữ
-TopTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Màu chữ (ví dụ: trắng)
-TopTextLabel.TextWrapped = true -- Cho phép xuống dòng nếu text quá dài
-TopTextLabel.TextXAlignment = Enum.TextXAlignment.Center -- Căn giữa text theo chiều ngang
-TopTextLabel.TextYAlignment = Enum.TextYAlignment.Center -- Căn giữa text theo chiều dọc
-
--- 5. Nền và Viền:
-TopTextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Màu nền (ví dụ: đen)
-TopTextLabel.BackgroundTransparency = 0.4 -- Độ trong suốt của nền (0 = không trong suốt, 1 = hoàn toàn trong suốt)
-TopTextLabel.BorderSizePixel = 0 -- Kích thước viền (nếu muốn)
--- TopTextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255) -- Màu viền (nếu có)
-
--- 6. Thứ tự hiển thị (Quan trọng nếu có nhiều UI)
-TopTextLabel.ZIndex = 10 -- Đặt giá trị cao để đảm bảo nó nằm trên các UI khác (trừ khi bạn muốn menu toggle nằm trên)
-
--- (Tùy chọn) Thêm hiệu ứng viền chữ
-local TextStroke = Instance.new("UIStroke")
-TextStroke.Color = Color3.fromRGB(0, 0, 0) -- Màu viền chữ (ví dụ: đen)
-TextStroke.Thickness = 1 -- Độ dày viền chữ
-TextStroke.Transparency = 0 -- Độ trong suốt viền chữ (0 = rõ nhất)
-TextStroke.Parent = TopTextLabel
-
--- [[ Kết thúc đoạn code thêm Text cố định ]]
 local UI = Instance.new("ScreenGui")
 UI.Name = randomString
 UI.Parent = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules")
